@@ -1,0 +1,18 @@
+<%= form_for @user, url: {action: "update"} do |f| %>
+  Username: <%= f.text_field :username, placeholder: "Example69" %><br />
+  Email: <%= f.email_field :email, placeholder: "examle69@example.com" %><br />
+  Password: <%= f.password_field :password %><br />
+  <%= f.submit "Submit" %>
+<% end %>
+
+
+<% if @user.errors.any? %>
+<div>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+</div>
+
+<% end %>
